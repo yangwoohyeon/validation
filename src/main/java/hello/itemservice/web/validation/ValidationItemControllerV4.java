@@ -81,7 +81,7 @@ public class ValidationItemControllerV4 { //V4
         return "validation/v4/editForm";
     }
 
-   //@PostMapping("/{itemId}/edit")
+   @PostMapping("/{itemId}/edit")
     public String edit(@PathVariable Long itemId, @Validated @ModelAttribute("item") ItemUpdateForm form, BindingResult bindingResult) {
         //특정 필드 예외가 아닌 전체 예외
         if (form.getPrice() != null && form.getQuantity() != null) {
@@ -104,7 +104,7 @@ public class ValidationItemControllerV4 { //V4
         return "redirect:/validation/v4/items/{itemId}";
     }
 
-    @PostMapping("/{itemId}/edit")
+    //@PostMapping("/{itemId}/edit")
     public String editV2(@PathVariable Long itemId, @Validated(UpdateCheck.class) @ModelAttribute Item item, BindingResult bindingResult) {
         //특정 필드 예외가 아닌 전체 예외
         if (item.getPrice() != null && item.getQuantity() != null) {
